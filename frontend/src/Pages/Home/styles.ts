@@ -7,7 +7,7 @@ export const Container = styled.View`
 export const ContainerOption = styled.View`
   flex: 1;
 `
-export const Options = styled.View`
+export const Options = styled.TouchableOpacity`
   width: 125px;
   height: 150px;
   background-color: #52BE80;

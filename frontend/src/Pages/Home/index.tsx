@@ -1,8 +1,9 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, FlatList } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
+import fonts from '../../Theme/fonts'
 import { Container, ContainerOption, Options } from './styles'
-import fonts from '../../theme/fonts'
-import { FlatList } from 'react-native-gesture-handler';
 
 import Terms from '../../Assets/icones/terms.svg'
 import Boleto from '../../Assets/icones/Boleto.svg'
@@ -13,26 +14,27 @@ const Data = [
   {
     id: Math.random(),
     title: 'Contrato',
-    icon: ''
+    navigate: ''
   },
   {
     id: Math.random(),
     title: 'Boletos',
-    icon: ''
+    navigate: ''
   },
   {
     id: Math.random(),
     title: 'Perfil',
-    icon: ''
+    navigate: ''
   },
   {
     id: Math.random(),
     title: 'Avisos',
-    icon: ''
+    navigate: ''
   },
 ]
 
 const Home: React.FC = () => {
+  const { navigate } = useNavigation();
 
   function renderIcon(name: string): JSX.Element {
     if (name === 'Contrato') return <Terms />
@@ -44,21 +46,19 @@ const Home: React.FC = () => {
 
   return (
     <Container>
-      <Text style={{ fontFamily: fonts.regular, fontSize: 18 }}>Olá, Victor</Text>
+      <Text style={{ fontFamily: fonts.regular, fontSize: 18, color: '#111' }}>Olá, Victor</Text>
       <ContainerOption>
         <FlatList
           data={Data}
           numColumns={2}
           style={{ paddingHorizontal: 48, marginTop: 40 }}
           ItemSeparatorComponent={() => <View style={{ height: 25 }} />}
-          renderItem={({ item }) =>
-          (
-            <Options>
+          renderItem={({ item }) => (
+            <Options activeOpacity={1} onPress={() => navigate(item.title)}>
               {renderIcon(item.title)}
               <Text style={{ fontFamily: fonts.regular, fontSize: 14, color: '#f5f5f5' }}>{item.title}</Text>
             </Options>
-          )
-          }
+          )}
         />
       </ContainerOption>
     </Container >

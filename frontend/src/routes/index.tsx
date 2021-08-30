@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, { useEffect } from 'react';
+import SplashScreen from 'react-native-splash-screen'
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 
 import Login from '../Pages/Login'
@@ -8,6 +8,11 @@ import Home from '../Pages/Home'
 const Route = createStackNavigator();
 
 const Routes: React.FC = () => {
+
+  useEffect(() => {
+    SplashScreen.hide();
+  }, [])
+
   return (
     <Route.Navigator
       screenOptions={{
@@ -25,7 +30,7 @@ const Routes: React.FC = () => {
         options={{
           gestureEnabled: true,
           animationEnabled: true,
-          cardStyleInterpolator: CardStyleInterpolators.forScaleFromCenterAndroid
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
         }}
       />
     </Route.Navigator >

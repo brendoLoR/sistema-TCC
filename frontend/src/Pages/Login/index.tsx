@@ -1,66 +1,84 @@
-import React, { useCallback, useRef, useState } from 'react';
-import { Image, KeyboardAvoidingView, Platform } from 'react-native';
+import React, { useCallback, useEffect, useState } from 'react';
+import { KeyboardAvoidingView, Platform, Animated, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { Input, Button } from 'react-native-elements'
+import { Button, Input } from 'react-native-elements'
+import normalize from 'react-native-normalize'
 
-import { Form } from '@unform/mobile';
-import { FormHandles } from '@unform/core';
+import { ButtonSignUp, Container, Text } from './styles'
 
-import fonts from '../../theme/fonts';
+import fonts from '../../Theme/fonts';
 import Logo from '../../Assets/Logo.png'
-
-interface LoginProps {
-  email: string;
-  password: string;
-}
 
 const Login: React.FC = () => {
   const { navigate } = useNavigation();
-  const formRef = useRef<FormHandles>(null);
+
+  const [translatedLogo] = useState(new Animated.Value(normalize(220, 'height')))
+  const [scale] = useState(new Animated.Value(0))
 
   const [loadingLogin, setLoadingLogin] = useState(false);
 
   const handleLogin = useCallback(
-    async (obj: any) => {
+    async () => {
       setLoadingLogin(true)
       setTimeout(() => {
         setLoadingLogin(false)
         navigate('Home');
-      }, 2000)
+      }, 100)
     },
     [],
   );
 
+  useEffect(() => {
+    Animated.timing(translatedLogo, {
+      toValue: 0,
+      duration: 1000,
+      useNativeDriver: true,
+    }).start()
+    Animated.timing(scale, {
+      toValue: 1,
+      duration: 1000,
+      useNativeDriver: true,
+    }).start()
+  }, [])
+
   return (
     <KeyboardAvoidingView style={{ flex: 1 }}
       behavior="position"
-      keyboardVerticalOffset={Platform.OS === 'ios' ? 40 : -80}
+      enabled
+      keyboardVerticalOffset={Platform.OS === 'ios' ? normalize(40, 'height') : normalize(-30, 'height')}
     >
-      <Image source={Logo} style={{ width: 200, height: 200, alignSelf: 'center' }} />
-      <Form
+      <Animated.Image
+        source={Logo}
+        style={{
+          width: 230,
+          height: 230,
+          alignSelf: 'center',
+          transform: [{ translateY: translatedLogo }]
+        }}
+      />
+      <Animated.View
         style={{
           width: '100%',
           alignItems: 'center',
           justifyContent: 'center',
-          paddingHorizontal: 35
+          paddingHorizontal: 35,
+          transform: [{ scale }]
         }}
-        ref={formRef}
-        onSubmit={handleLogin}
       >
         <Input
-          name="email"
           leftIcon={{ type: 'Feather', name: 'mail' }}
           placeholder="email@endereco.com"
           label="E-mail"
           labelStyle={{ fontFamily: fonts.light, fontSize: 14, color: '#111' }}
         />
         <Input
-          name="password"
-          leftIcon={{ type: 'Feather', name: 'lock' }}
+          leftIcon={{ type: 'Feather', name: 'lock', color: '#111' }}
+          labelStyle={{ fontFamily: fonts.light, fontSize: 14, color: '#111' }}
+          containerStyle={{ borderColor: 'red' }}
           placeholder="senha"
           label="Senha"
           secureTextEntry
-          labelStyle={{ fontFamily: fonts.light, fontSize: 14, color: '#111' }}
+          errorMessage=""
         />
         <Button
           title="Entrar"
@@ -70,17 +88,27 @@ const Login: React.FC = () => {
             justifyContent: 'center',
             width: '100%',
             height: 50,
-            borderRadius: 10
+            borderRadius: 10,
+            marginBottom: 45,
           }}
           buttonStyle={{
             width: '100%',
             height: 50,
-            borderRadius: 10
+            borderRadius: 10,
           }}
           loading={loadingLogin}
-          onPress={() => formRef.current.submitForm()}
+          onPress={handleLogin}
         />
-      </Form>
+        <View style={{ flexDirection: 'row' }}>
+          <Text>Você ainda não possui cadastro?</Text>
+          <ButtonSignUp>
+            <Text color="#52BE80">Cadastre-se</Text>
+          </ButtonSignUp>
+        </View>
+        <ButtonSignUp style={{ marginTop: 30 }}>
+          <Text color="#52BE80">Esqueci minha senha</Text>
+        </ButtonSignUp>
+      </Animated.View>
     </KeyboardAvoidingView>
   )
 }
