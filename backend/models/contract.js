@@ -1,4 +1,7 @@
 'use strict';
+const Client = require('./client');
+const Realty = require('./realty');
+const Renter = require('./renter');
 const {
   Model
 } = require('sequelize');
@@ -30,6 +33,15 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Contract',
+  });
+  Contract.belongsTo(Realty, {
+    foreignKey: 'realty_id'
+  });
+  Contract.belongsTo(Renter, {
+    foreignKey: 'renter_id'
+  });
+  Contract.belongsTo(Client, {
+    foreignKey: 'client_id'
   });
   return Contract;
 };
