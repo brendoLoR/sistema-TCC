@@ -31,7 +31,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         primaryKey: true,
         references: {
-          model: 'UserAccessesLevel', // Name of the created table
+          model: 'UserAccessesLevels', // Name of the created table
           key: 'id',
           onUpdate: 'CASCADE',
           onDelete: 'CASCADE'
