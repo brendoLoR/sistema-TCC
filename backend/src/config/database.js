@@ -29,7 +29,6 @@ module.exports = {
     database:'tcc-cliente-vendas',
     define: {
         timestamp: true,
-        underscored: true
     },
 
 };
