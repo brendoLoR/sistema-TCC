@@ -19,6 +19,7 @@
   "homepage": "https://github.com/brendoLoR/sistema-integrado-cliente-vendedor#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "cpf-cnpj-validator": "^1.0.3",
     "express": "^4.17.1",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",

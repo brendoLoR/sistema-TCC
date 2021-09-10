@@ -26,7 +26,7 @@ module.exports = {
       birthday: {
         type: Sequelize.DATE,
       },
-      aderess_id: {
+      aderessId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Aderesses', // Name of the created table
@@ -35,7 +35,7 @@ module.exports = {
           onDelete: 'CASCADE'
         }
       },
-      user_id: {
+      userId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Users', // Name of the created table

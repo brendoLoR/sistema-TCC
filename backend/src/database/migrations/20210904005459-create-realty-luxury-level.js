@@ -12,10 +12,10 @@ module.exports = {
         type: Sequelize.STRING,
         unique:true
       },
-      value_multiplier: {
+      valueMultiplier: {
         type: Sequelize.FLOAT
       },
-      renter_id: {
+      renterId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Renters', // Name of the created table

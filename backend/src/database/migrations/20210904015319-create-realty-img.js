@@ -8,11 +8,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      img_path: {
+      imgPath: {
         type: Sequelize.STRING,
         unique: true
       },
-      realty_id: {
+      realtyId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Realties', // Name of the created table

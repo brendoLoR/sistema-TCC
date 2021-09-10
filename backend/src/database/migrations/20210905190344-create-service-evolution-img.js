@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      service_evolution_id: {
+      serviceEvolutionId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'ServiceEvolutions', // Name of the created table
@@ -16,7 +16,7 @@ module.exports = {
         },
         allowNull: false
       },
-      img_path: {
+      imgPath: {
         type: Sequelize.STRING
       },
       createdAt: {

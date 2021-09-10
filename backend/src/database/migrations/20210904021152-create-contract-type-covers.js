@@ -14,7 +14,7 @@ module.exports = {
       description: {
         type: Sequelize.STRING
       },
-      contract_type_id: {
+      contractTypeId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'ContractTypes', // Name of the created table

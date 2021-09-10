@@ -16,8 +16,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   AdditionalCost.init({
-    type_id: DataTypes.INTEGER,
-    contract_id: DataTypes.INTEGER,
+    typeId: DataTypes.INTEGER,
+    contractId: DataTypes.INTEGER,
     description: DataTypes.TEXT,
     value: DataTypes.FLOAT
   }, {
@@ -26,13 +26,13 @@ module.exports = (sequelize, DataTypes) => {
   });
   AdditionalCost.belongsTo(CostType, {
     foreignKey: {
-      foreignKey: 'type_id',
+      foreignKey: 'typeId',
       type: DataTypes.INTEGER
     }
   });
   AdditionalCost.belongsTo(Contract, {
     foreignKey: {
-      foreignKey: 'contract_id',
+      foreignKey: 'contractId',
       type: DataTypes.INTEGER
     }
   });

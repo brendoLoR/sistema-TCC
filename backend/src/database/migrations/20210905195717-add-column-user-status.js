@@ -3,7 +3,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     return Promise.all([queryInterface.addColumn(
-      'Users', 'user_status_id', {
+      'Users', 'userStatusId', {
         type: Sequelize.INTEGER,
         references: {
           model: 'UserStatuses', // Name of the created table
@@ -14,6 +14,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    return Promise.all([queryInterface.dropColumn('Users', 'user_status_id')]);
+    return Promise.all([queryInterface.dropColumn('Users', 'userStatusId')]);
   }
 };

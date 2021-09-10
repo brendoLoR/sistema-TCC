@@ -5,16 +5,15 @@ const {
   DataTypes,
   Model
 } = require('sequelize');
-
 const sequelize = new Sequelize(dbConfig);
 
-class UserStatus extends Model {}
+class UserAccessLevel extends Model {}
 
-UserStatus.init({
-  status: DataTypes.STRING
+UserAccessLevel.init({
+  accessLevel: Sequelize.STRING
 }, {
   sequelize,
-  modelName: 'UserStatus',
+  modelName: 'UserAccessesLevel',
 });
 
-module.exports = UserStatus;
+module.exports = UserAccessLevel;

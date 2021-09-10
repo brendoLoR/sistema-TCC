@@ -1,20 +1,12 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('AdditionalCosts', {
+    await queryInterface.createTable('Invoices', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
-      },
-      typeId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'CostTypes', // Name of the created table
-          key: 'id'
-        },
-        allowNull: false
       },
       contractId: {
         type: Sequelize.INTEGER,
@@ -24,13 +16,33 @@ module.exports = {
         },
         allowNull: false
       },
-      description: {
-        type: Sequelize.TEXT,
-        allowNull: false
+      baseDate: {
+        type: Sequelize.DATE
       },
       value: {
-        type: Sequelize.FLOAT,
-        allowNull: false
+        type: Sequelize.FLOAT
+      },
+      rebate: {
+        type: Sequelize.FLOAT
+      },
+      validity: {
+        type: Sequelize.DATE
+      },
+      latePaymentInterest: {
+        type: Sequelize.FLOAT
+      },
+      latePaymentTolerance: {
+        type: Sequelize.FLOAT
+      },
+      paidAt: {
+        type: Sequelize.DATE
+      },
+      paymentId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Payments', // Name of the created table
+          key: 'id'
+        },
       },
       createdAt: {
         allowNull: false,
@@ -43,6 +55,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('AdditionalCosts');
+    await queryInterface.dropTable('Invoices');
   }
 };

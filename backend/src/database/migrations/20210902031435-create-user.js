@@ -27,16 +27,20 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      access_level_id: {
+      accessLevelId: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         references: {
-          model: 'UserAccessesLevel', // Name of the created table
+          model: 'UserAccessesLevels', // Name of the created table
           key: 'id',
           onUpdate: 'CASCADE',
           onDelete: 'CASCADE'
         },
         allowNull: false,
+      },
+      signedTermsAt: {
+        allowNull: false,
+        type: Sequelize.DATE
       },
       createdAt: {
         allowNull: false,
