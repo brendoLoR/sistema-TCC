@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   InventaryImg.init({
-    img_path: DataTypes.STRING
+    imgPath: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'InventaryImg',

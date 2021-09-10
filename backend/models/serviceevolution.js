@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   ServiceEvolution.init({
-    service_request_id: DataTypes.INTEGER,
-    user_id: DataTypes.INTEGER,
+    serviceRequestId: DataTypes.INTEGER,
+    userId: DataTypes.INTEGER,
     description: DataTypes.TEXT
   }, {
     sequelize,

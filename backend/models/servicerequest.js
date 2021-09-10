@@ -18,27 +18,27 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   ServiceRequest.init({
-    service_type_id: DataTypes.INTEGER,
-    inventary_id: DataTypes.INTEGER,
-    realty_id: DataTypes.INTEGER,
-    status_id: DataTypes.INTEGER,
-    contract_id: DataTypes.INTEGER,
+    serviceTypeId: DataTypes.INTEGER,
+    inventaryId: DataTypes.INTEGER,
+    realtyId: DataTypes.INTEGER,
+    statusId: DataTypes.INTEGER,
+    contractId: DataTypes.INTEGER,
     description: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'ServiceRequest',
   });
   ServiceRequest.belongsTo(servicetype, {
-    foreignKey: 'service_type_id'
+    foreignKey: 'serviceTypeId'
   });
   ServiceRequest.belongsTo(inventary, {
-    foreignKey: 'inventary_id'
+    foreignKey: 'inventaryId'
   });
   ServiceRequest.belongsTo(realty, {
-    foreignKey: 'realty_id'
+    foreignKey: 'realtyId'
   });
   ServiceRequest.belongsTo(status, {
-    foreignKey: 'status_id'
+    foreignKey: 'statusId'
   });
   return ServiceRequest;
 };

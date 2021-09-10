@@ -1,23 +1,41 @@
 'use strict';
+const dbConfig = require('../src/config/database')
 const {
+  Sequelize,
+  DataTypes,
   Model
 } = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  };
-  User.init({
-    cpf: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'User',
+const sequelize = new Sequelize(dbConfig);
+
+const UserAccessesLevel = require('./UserAccessLevel');
+const UserStatus = require('./UserStatus');
+
+class User extends Model {}
+
+User.associate = function (models) {
+  User.belongsTo(models.useraccesseslevel, {
+    as: 'accessLevelId'
   });
-  return User;
-};
+  return UserStatus;
+}
+User.associate = function (models) {
+  User.belongsTo(models.userstatus, {
+    as: 'userStatusId'
+  });
+  return UserAccessesLevel ;
+}
+
+User.init({
+  cpf: Sequelize.STRING,
+  email: Sequelize.STRING,
+  password: Sequelize.STRING,
+  token: Sequelize.STRING,
+  accessLevelId: Sequelize.INTEGER,
+  signedTermsAt: Sequelize.DATE,
+  userStatusId: Sequelize.INTEGER
+}, {
+  sequelize,
+  modelName: 'User',
+});
+
+module.exports = User;

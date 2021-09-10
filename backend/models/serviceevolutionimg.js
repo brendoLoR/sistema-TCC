@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   ServiceEvolutionImg.init({
-    service_evolution_id: DataTypes.INTEGER,
-    img_path: DataTypes.STRING
+    service_evolutionId: DataTypes.INTEGER,
+    imgPath: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'ServiceEvolutionImg',
