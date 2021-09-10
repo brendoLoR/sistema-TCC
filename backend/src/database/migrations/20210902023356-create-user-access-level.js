@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      access_level: {
+      accessLevel: {
         type: Sequelize.STRING
       },
       createdAt: {

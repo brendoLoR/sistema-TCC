@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      service_type_id: {
+      serviceTypeId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'ServiceTypes', // Name of the created table
@@ -16,7 +16,7 @@ module.exports = {
         },
         allowNull: false
       },
-      inventary_id: {
+      inventaryId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Inventaries', // Name of the created table
@@ -24,7 +24,7 @@ module.exports = {
         },
         allowNull: false
       },
-      realty_id: {
+      realtyId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Realties', // Name of the created table
@@ -32,7 +32,7 @@ module.exports = {
         },
         allowNull: false
       },
-      status_id: {
+      statusId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'ServiceStatuses', // Name of the created table
@@ -40,7 +40,7 @@ module.exports = {
         },
         allowNull: false
       },
-      contract_id: {
+      contractId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Contracts', // Name of the created table

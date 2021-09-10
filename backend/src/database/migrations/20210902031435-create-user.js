@@ -27,7 +27,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      access_level_id: {
+      accessLevelId: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         references: {
@@ -37,6 +37,10 @@ module.exports = {
           onDelete: 'CASCADE'
         },
         allowNull: false,
+      },
+      signedTermsAt: {
+        allowNull: false,
+        type: Sequelize.DATE
       },
       createdAt: {
         allowNull: false,

@@ -1,30 +1,34 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('ServiceEvolutions', {
+    await queryInterface.createTable('Payments', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      serviceRequestId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'ServiceRequests', // Name of the created table
-          key: 'id'
-        },
-        allowNull: false
-      },
-      userId: {
+      uuserId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'Users', // Name of the created table
           key: 'id'
-        },
-        allowNull: false
+        }
       },
-      description: {
+      paidMethodId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'PaymentMethods', // Name of the created table
+          key: 'id'
+        }
+      },
+      paidValue: {
+        allowNull: false,
+        type: Sequelize.FLOAT
+      },
+      details: {
         type: Sequelize.TEXT
       },
       createdAt: {
@@ -38,6 +42,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('ServiceEvolutions');
+    await queryInterface.dropTable('Payments');
   }
 };

@@ -15,7 +15,7 @@ module.exports = {
       description: {
         type: Sequelize.TEXT
       },
-      renter_id: {
+      renterId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Renters', // Name of the created table

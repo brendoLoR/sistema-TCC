@@ -11,7 +11,7 @@ module.exports = {
       type: {
         type: Sequelize.STRING
       },
-      renter_id: {
+      renterId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Renters', // Name of the created table

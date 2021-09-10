@@ -11,14 +11,14 @@ module.exports = {
       value: {
         type: Sequelize.FLOAT
       },
-      inventary_type_id: {
+      inventaryTypeId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'InventaryTypes', // Name of the created table
           key: 'id'
         }
       },
-      realty_id: {
+      realtyId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Realties', // Name of the created table

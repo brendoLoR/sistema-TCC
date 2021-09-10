@@ -8,21 +8,21 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      realty_id: {
+      realtyId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Realties', // Name of the created table
           key: 'id'
         }
       },
-      renter_id: {
+      renterId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Renters', // Name of the created table
           key: 'id'
         }
       },
-      client_id: {
+      clientId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Clients', // Name of the created table
@@ -36,35 +36,35 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false
       },
-      initial_value: {
+      initialValue: {
         type: Sequelize.FLOAT,
         allowNull: false
       },
-      ajustment_value: {
+      ajustmentValue: {
         type: Sequelize.FLOAT
       },
-      ajustment_value_period: {
+      ajustmentValuePeriod: {
         type: Sequelize.FLOAT
       },
-      base_payment: {
+      basePayment: {
         type: Sequelize.FLOAT,
         allowNull: false
       },
-      pay_day: {
+      payDay: {
         type: Sequelize.DATE,
         allowNull: false
       },
-      contract_type_id: {
+      contractTypeId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'ContractTypes', // Name of the created table
           key: 'id'
         }
       },
-      signed_contractor_at: {
+      signedContractorAt: {
         type: Sequelize.DATE
       },
-      signed_contracted_at: {
+      signedContractedAt: {
         type: Sequelize.DATE
       },
       createdAt: {

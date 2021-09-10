@@ -17,33 +17,33 @@ module.exports = {
       size: {
         type: Sequelize.FLOAT
       },
-      saling_value: {
+      salingValue: {
         type: Sequelize.FLOAT
       },
-      rent_value: {
+      rentValue: {
         type: Sequelize.FLOAT
       },
-      qtd_bedrooms: {
+      qtdBedrooms: {
         type: Sequelize.INTEGER
       },
-      qtd_wc: {
+      qtdWc: {
         type: Sequelize.INTEGER
       },
-      realty_type_id: {
+      realtyTypeId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'RealtyTypes', // Name of the created table
           key: 'id'
         }
       },
-      luxury_level_id: {
+      luxuryLevelId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'RealtyLuxuryLevels', // Name of the created table
           key: 'id'
         }
       },
-      renter_id: {
+      renterId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Renters', // Name of the created table
