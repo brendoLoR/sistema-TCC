@@ -3,14 +3,16 @@ import { KeyboardAvoidingView, Platform, Animated, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Button, Input } from 'react-native-elements'
 import normalize from 'react-native-normalize'
+import { useToast } from "react-native-toast-notifications";
 
 import { ButtonSignUp, Container, Text } from './styles'
 
 import fonts from '../../Theme/fonts';
-import Logo from '../../Assets/Logo.png'
+import Logo from '../../assets/Logo.png';
 
 const Login: React.FC = () => {
   const { navigate } = useNavigation();
+  const Toast = useToast();
 
   const [translatedLogo] = useState(new Animated.Value(normalize(220, 'height')))
   const [scale] = useState(new Animated.Value(0))
@@ -24,6 +26,18 @@ const Login: React.FC = () => {
         setLoadingLogin(false)
         navigate('Home');
       }, 100)
+      Toast.show('',
+        {
+          id: String(Math.random()),
+          placement: 'top',
+          type: 'customSuccess',
+          data: {
+            title: 'Olá',
+            message: 'MundoMundoMundoMundoMundoMundoMundoMundoMundoMundoMundo',
+            type: 'success'
+          }
+        }
+      )
     },
     [],
   );
