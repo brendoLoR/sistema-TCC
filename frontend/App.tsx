@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { StatusBar, View, Text } from 'react-native';
+import { StatusBar } from 'react-native';
 import { ToastProvider } from 'react-native-toast-notifications'
 import { NavigationContainer } from '@react-navigation/native';
 import Toast from '../frontend/src/Components/Toast'

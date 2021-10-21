@@ -2,13 +2,13 @@ import React from 'react';
 import { Text, View, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import fonts from '../../Theme/fonts'
+import fonts from '../../../Theme/fonts'
 import { Container, ContainerOption, Options } from './styles'
 
-import Terms from '../../Assets/icones/terms.svg'
-import Boleto from '../../Assets/icones/Boleto.svg'
-import Profile from '../../Assets/icones/PersonBadge.svg'
-import Warn from '../../Assets/icones/warn.svg'
+import Terms from '../../../assets/icones/terms.svg'
+import Boleto from '../../../assets/icones/Boleto.svg'
+import Profile from '../../../assets/icones/PersonBadge.svg'
+import Warn from '../../../assets/icones/warn.svg'
 
 const Data = [
   {

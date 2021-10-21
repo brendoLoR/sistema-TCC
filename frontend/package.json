@@ -35,7 +35,8 @@
     "react-native-vector-icons": "^8.1.0",
     "styled-components": "^5.3.0",
     "styled-components-react-native": "^1.0.0",
-    "yarn": "^1.22.11"
+    "yarn": "^1.22.11",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",

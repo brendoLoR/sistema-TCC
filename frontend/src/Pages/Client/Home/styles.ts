@@ -9,8 +9,9 @@ export const ContainerOption = styled.View`
 `
 export const Options = styled.TouchableOpacity`
   width: 125px;
-  height: 150px;
-  background-color: #52BE80;
+  height: 125px;
+  padding: 5px;
+  background-color: #29AAE1;
   border-radius: 15px;
   margin-right: 25px;
   justify-content: space-around;

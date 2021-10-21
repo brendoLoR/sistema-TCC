@@ -3,7 +3,7 @@ import SplashScreen from 'react-native-splash-screen'
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 
 import Login from '../Pages/Login'
-import Home from '../Pages/Home'
+import Home from '../Pages/Client/Home'
 
 const Route = createStackNavigator();
 

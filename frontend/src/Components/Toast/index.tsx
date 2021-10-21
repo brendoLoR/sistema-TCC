@@ -27,8 +27,7 @@ const Toast: React.FC<ToastProps> = ({
         <Message>{message}</Message>
       </View>
       <Icon
-        onPress={() => Toast.hide(id)}
-        onLongPress={() => Toast.hideAll()}
+        onPress={() => Toast.hideAll()}
       >
         <FeatherIcon name='x' size={25} color="#f5f5f5" style={{ alignSelf: 'center' }} />
       </Icon>
