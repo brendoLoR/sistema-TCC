@@ -1,7 +1,8 @@
 const User = require('../models/User');
 const crypter = require('../src/cryoto/crypter');
 const {
-    cpf_validator
+    cpf_validator,
+    email_validator
 } = require('../src/validations/validations');
 
 module.exports = {
@@ -14,12 +15,13 @@ module.exports = {
             password
         } = req.body
         try {
-            cryptPasswd = crypter(password);
+            cryptPasswd = crypter(password, cpf.toString());
             validCpf = cpf_validator(cpf);
+            validEmail = email_validator(email);
 
             const user = await User.create({
                 cpf: validCpf,
-                email,
+                email: validEmail,
                 accessLevelId,
                 userStatusId,
                 UserAccessLevelId: accessLevelId,
@@ -28,7 +30,7 @@ module.exports = {
             })
             res.send(user)
         } catch (error) {
-            res.send(error);
+            error.message != null ? res.send(error.message) : res.send(error);
         }
     }
 }
