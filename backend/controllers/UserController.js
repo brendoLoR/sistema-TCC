@@ -28,7 +28,7 @@ module.exports = {
                 UserStatusId: userStatusId,
                 password: cryptPasswd
             })
-            res.send(user)
+            res.send(user.getDataValue())
         } catch (error) {
             error.message != null ? res.send(error.message) : res.send(error);
         }
