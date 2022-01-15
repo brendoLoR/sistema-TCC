@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "set NODE_ENV=dev && nodemon src/server.js --ignore tests",
     "start": "set NODE_ENV=production && node src/server.js",

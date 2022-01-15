@@ -26,11 +26,12 @@ module.exports = {
                 userStatusId,
                 UserAccessLevelId: accessLevelId,
                 UserStatusId: userStatusId,
-                password: cryptPasswd
+                password: cryptPasswd,
+                token: ""
             })
             res.send(user)
         } catch (error) {
-            error.message != null ? res.send(error.message) : res.send(error);
+            error.message != null ? res.send(error.stack) : res.send(error);
         }
     }
 }
