@@ -7,7 +7,7 @@ function validEmail(email) {
         })) {
             return email;
         } else {
-            return false;
+            throw new TypeError( 'this Email is invalid');
         }
     }
 

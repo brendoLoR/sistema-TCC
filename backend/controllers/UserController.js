@@ -29,7 +29,7 @@ module.exports = {
                 password: cryptPasswd,
                 token: ""
             })
-            res.send(user)
+            res.send(user.getDataValue())
         } catch (error) {
             error.message != null ? res.send(error.stack) : res.send(error);
         }

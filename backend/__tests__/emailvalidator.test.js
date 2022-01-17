@@ -6,65 +6,78 @@ describe('email validation test', () => {
         const c = emailvalidator(s);
         expect(c).not.toBeNull();
         expect(c).toBe("email@email.com");
+
     }),
-    it('shouldn´t valid an false email', () => {
-        const s = "emailemail.com";
-        const c = emailvalidator(s);
-        // expect(c).not.toBeNull();
-        expect(c).toBe(false);
+    it('shouldnt valid an false email', () => {
+        try {
+            const s = "emailemail.com";
+            const c = emailvalidator(s);
+        } catch (e) {            
+            expect(e.message).toBe('this Email is invalid');
+        }
     }),
-    it('shouldn´t valid an false email', () => {
-        const s = "email@emailcom";
-        const c = emailvalidator(s);
-        // expect(c).not.toBeNull();
-        expect(c).toBe(false);
+    it('shouldnt valid an false email', () => {
+        try {
+            const s = "email@emailcom";
+            const c = emailvalidator(s);
+        } catch (e) {            
+            expect(e.message).toBe('this Email is invalid');
+        }
     }),
-    it('shouldn´t valid an false email', () => {
-        const s = "@emailemail.com";
-        const c = emailvalidator(s);
-        // expect(c).not.toBeNull();
-        expect(c).toBe(false);
+    it('shouldnt valid an false email', () => {
+        try {
+            const s = "email email.com";
+            const c = emailvalidator(s);
+        } catch (e) {            
+            expect(e.message).toBe('this Email is invalid');
+        }
     }),
-    it('shouldn´t valid an false email', () => {
-        const s = "@emailemailcom";
-        const c = emailvalidator(s);
-        // expect(c).not.toBeNull();
-        expect(c).toBe(false);
+    it('shouldnt valid an false email', () => {
+        try {
+            const s = "emailemailcom";
+            const c = emailvalidator(s);
+        } catch (e) {            
+            expect(e.message).toBe('this Email is invalid');
+        }
     }),
-    it('shouldn´t valid an false email', () => {
-        const s = ".com";
-        const c = emailvalidator(s);
-        // expect(c).not.toBeNull();
-        expect(c).toBe(false);
+    it('shouldnt valid an false email', () => {
+        try {
+            const s = "email@emailcom";
+            const c = emailvalidator(s);
+        } catch (e) {            
+            expect(e.message).toBe('this Email is invalid');
+        }
     }),
-    it('shouldn´t valid an false email', () => {
-        const s = "emailemail";
-        const c = emailvalidator(s);
-        // expect(c).not.toBeNull();
-        expect(c).toBe(false);
+    it('shouldnt valid an false email', () => {
+        try {
+            const s = " @email.com";
+            const c = emailvalidator(s);
+        } catch (e) {            
+            expect(e.message).toBe('this Email is invalid');
+        }
     }),
-    it('shouldn´t valid an false email', () => {
-        const s = "";
-        const c = emailvalidator(s);
-        // expect(c).not.toBeNull();
-        expect(c).toBe(false);
+    it('shouldnt valid an false email', () => {
+        try {
+            const s = "email@email.";
+            const c = emailvalidator(s);
+        } catch (e) {            
+            expect(e.message).toBe('this Email is invalid');
+        }
     }),
-    it('shouldn´t valid an false email', () => {
-        const s = "email@ email.com";
-        const c = emailvalidator(s);
-        // expect(c).not.toBeNull();
-        expect(c).toBe(false);
+    it('shouldnt valid an false email', () => {
+        try {
+            const s = ".email@email.com";
+            const c = emailvalidator(s);
+        } catch (e) {            
+            expect(e.message).toBe('this Email is invalid');
+        }
     }),
-    it('shouldn´t valid an false email', () => {
-        const s = "email@email. com";
-        const c = emailvalidator(s);
-        // expect(c).not.toBeNull();
-        expect(c).toBe(false);
-    }),
-    it('shouldn´t valid an false email', () => {
-        const s = "email@email .com";
-        const c = emailvalidator(s);
-        // expect(c).not.toBeNull();
-        expect(c).toBe(false);
+    it('shouldnt valid an false email', () => {
+        try {
+            const s = "email@email. com";
+            const c = emailvalidator(s);
+        } catch (e) {            
+            expect(e.message).toBe('this Email is invalid');
+        }
     })
 });
