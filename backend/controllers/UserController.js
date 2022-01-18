@@ -1,5 +1,7 @@
 const User = require('../models/User');
 const crypter = require('../src/cryoto/crypter');
+const sequelize = require('sequelize');
+const uuid = require('../src/util/uuid')
 const {
     cpf_validator,
     email_validator
@@ -12,14 +14,15 @@ module.exports = {
             email,
             accessLevelId,
             userStatusId,
-            password
-        } = req.body
+            password,
+            signedTermsAt
+        } = req.body;
         try {
             cryptPasswd = crypter(password, cpf.toString());
             validCpf = cpf_validator(cpf);
             validEmail = email_validator(email);
 
-            const user = await User.create({
+            const user = User.build({
                 cpf: validCpf,
                 email: validEmail,
                 accessLevelId,
@@ -27,9 +30,50 @@ module.exports = {
                 UserAccessLevelId: accessLevelId,
                 UserStatusId: userStatusId,
                 password: cryptPasswd,
-                token: ""
+                token: "",
+                signedTermsAt: signedTermsAt
             })
-            res.send(user.getDataValue())
+            await user.save();
+            res.send("user registered successfully");
+        } catch (error) {
+            error.message != null ? res.send(error.stack) : res.send(error);
+        }
+    },
+    async get(req, res) {
+        const {
+            cpf
+        } = req.body;
+
+        const user = await User.findOne(cpf);
+
+        res.send(user);
+    },
+    async loginCheck(req, res) {
+        const {
+            password,
+            email, //must be email
+        } = req.body;
+        try {
+            //first get the user data from db, 
+            const user = await User.findOne({
+                where: {
+                    email: email
+                }
+            });
+
+            //get the sent passwd and the cpf to make the key
+            cryptSentPasswd = crypter(password, user.cpf)
+
+            //check if are is equal
+            if (user.password !== cryptSentPasswd) {
+                throw new TypeError('incorrect password')
+            } else {
+                //if ok, create a section token and send it
+                user.token = uuid();
+                await user.save();
+                res.send({token: user.token});
+            }
+
         } catch (error) {
             error.message != null ? res.send(error.stack) : res.send(error);
         }

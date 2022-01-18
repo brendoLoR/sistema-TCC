@@ -8,5 +8,7 @@ const routes = express.Router();
 routes.post('/new_user', UserContoller.store);
 routes.post('/new_userAccess', UserAccessLevelController.store);
 routes.post('/new_userStatus', UserStatusController.store);
+routes.post('/login', UserContoller.loginCheck);
+
 
 module.exports = routes; 
