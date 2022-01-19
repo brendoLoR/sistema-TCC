@@ -5,6 +5,7 @@ const {
   DataTypes,
   Model
 } = require('sequelize');
+
 const sequelize = new Sequelize(dbConfig);
 
 const UserAccessesLevel = require('./UserAccessLevel');
@@ -28,7 +29,6 @@ User.associate = function (models) {
 User.init({
   cpf: Sequelize.STRING,
   email: Sequelize.STRING,
-  password: Sequelize.STRING,
   token: Sequelize.STRING,
   accessLevelId: Sequelize.INTEGER,
   signedTermsAt: Sequelize.DATE,

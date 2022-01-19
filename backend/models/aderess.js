@@ -1,23 +1,26 @@
 'use strict';
+const dbConfig = require('../src/config/database')
 const {
+  Sequelize,
+  DataTypes,
   Model
 } = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class Aderess extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  };
-  Aderess.init({
-    cep: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Aderess',
-  });
-  return Aderess;
-};
+
+const sequelize = new Sequelize(dbConfig);
+
+
+class Aderess extends Model {}
+
+Aderess.init({
+  cep: Sequelize.STRING,
+  city: Sequelize.STRING,
+  district: Sequelize.STRING,
+  country: Sequelize.STRING,
+  street: Sequelize.STRING,
+  uf: Sequelize.STRING,
+}, {
+  sequelize,
+  modelName: 'Aderess',
+});
+
+module.exports = Aderess;
