@@ -15,12 +15,13 @@ module.exports = {
             accessLevelId,
             userStatusId,
             password,
-            signedTermsAt
+            signedTerms
         } = req.body;
         try {
-            cryptPasswd = crypter(password, cpf.toString());
-            validCpf = cpf_validator(cpf);
-            validEmail = email_validator(email);
+            const cryptPasswd = crypter(password, cpf.toString());
+            const validCpf = cpf_validator(cpf);
+            const validEmail = email_validator(email);
+            const signedTermsAt = signedTerms ? new Date() : false
 
             const user = User.build({
                 cpf: validCpf,
