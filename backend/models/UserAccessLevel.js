@@ -13,7 +13,7 @@ UserAccessLevel.init({
   accessLevel: Sequelize.STRING
 }, {
   sequelize,
-  modelName: 'UserAccessesLevel',
+  modelName: 'UserAccessesLevels',
 });
 
 module.exports = UserAccessLevel;
