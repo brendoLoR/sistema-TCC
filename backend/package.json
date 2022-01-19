@@ -2,10 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "run",
-    "dev": "nodemon src/server.js"
+    "dev": "set NODE_ENV=dev && nodemon src/server.js --ignore tests",
+    "start": "set NODE_ENV=production && node src/server.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,11 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cpf-cnpj-validator": "^1.0.3",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "isemail": "^3.2.0",
+    "jest": "^27.4.7",
+    "jets": "^0.14.1",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.6.5"
