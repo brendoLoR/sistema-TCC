@@ -12,7 +12,8 @@ module.exports = {
                 details,
                 birthday,
                 aderessData,
-                userId
+                userId,
+                token
             } = req.body
             const token_s = await User.getToken(userId)
             if (token === token_s) {

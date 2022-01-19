@@ -30,6 +30,7 @@ User.init({
   cpf: Sequelize.STRING,
   email: Sequelize.STRING,
   token: Sequelize.STRING,
+  password: Sequelize.STRING,
   accessLevelId: Sequelize.INTEGER,
   signedTermsAt: Sequelize.DATE,
   userStatusId: Sequelize.INTEGER
