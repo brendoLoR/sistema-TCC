@@ -1,0 +1,32 @@
+{
+	"cpf": "017.803.594-70",
+	"email": "rouchdi9819@uorak.com",
+	"accessLevelId": 3,
+	"userStatusId": 1,
+	"password": "senha123",
+	"signedTerms": true
+}
+
+{
+	"cpf": "017.803.594-70",
+	"email": "rouchdi9819@uorak.com",
+	"password": "senha123"
+}
+
+{
+	"name": "name name names",
+	"cnpj": "80.659.527/0001-61",
+	"phone": "999999999",
+	"details": "N/C",
+	"birthday": "10/30/1997",
+	"aderessData": {
+		"cep": 59655973,
+		"district": "Povoado Redonda",
+		"city": "Areia Branca",
+		"country": "BR",
+		"street": "Rua Principal, s/n",
+		"uf": "RN"
+	},
+	"token": "kym1u57mvdnl0fn4eo",
+	"userId": 24
+}
