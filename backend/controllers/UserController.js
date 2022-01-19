@@ -39,6 +39,37 @@ module.exports = {
             error.message != null ? res.send(error.stack) : res.send(error);
         }
     },
+    async store(req) {
+        const {
+            cpf,
+            email,
+            accessLevelId,
+            userStatusId,
+            password,
+            signedTermsAt
+        } = req.body;
+        try {
+            cryptPasswd = crypter(password, cpf.toString());
+            validCpf = cpf_validator(cpf);
+            validEmail = email_validator(email);
+
+            const user = User.build({
+                cpf: validCpf,
+                email: validEmail,
+                accessLevelId,
+                userStatusId,
+                UserAccessLevelId: accessLevelId,
+                UserStatusId: userStatusId,
+                password: cryptPasswd,
+                token: "",
+                signedTermsAt: signedTermsAt
+            })
+            await user.save();
+            return user.id;
+        } catch (error) {
+            return error.message != null ? error.stack : error;
+        }
+    },
     async get(req, res) {
         const {
             cpf
@@ -47,6 +78,15 @@ module.exports = {
         const user = await User.findOne(cpf);
 
         res.send(user);
+    },
+    async getToken(id) {
+        const user = await User.findByPk(id);
+        return user.dataValues.token;
+    },
+    async getData(id) {
+        const user = await User.findByPk(id);
+        
+        return user.dataValues;
     },
     async loginCheck(req, res) {
         const {
