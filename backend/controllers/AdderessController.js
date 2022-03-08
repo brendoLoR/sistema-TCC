@@ -1,4 +1,4 @@
-const Aderess = require('../models/aderess');
+const Adderess = require('../models/adderess');
 
 module.exports = {
     async store(req, res) {
@@ -11,7 +11,7 @@ module.exports = {
             uf
         } = req.body
         
-        const aderess = await Aderess.create({
+        const adderess = await Adderess.create({
             cep,
             district,
             city,
@@ -19,7 +19,7 @@ module.exports = {
             street,
             uf
         })
-        res.send(aderess);
+        res.send(adderess);
     },
     async store(req) {
         const {
@@ -31,7 +31,7 @@ module.exports = {
             uf
         } = req
         
-        const aderess = await Aderess.create({
+        const adderess = await Adderess.create({
             cep,
             district,
             city,
@@ -39,14 +39,14 @@ module.exports = {
             street,
             uf
         })
-        return aderess.id;
+        return adderess.id;
     },
     async get(req, res) {
         const {
             id
         } = req.body
-        const aderess = await Aderess.findByPk(id);
-        res.send(aderess);
+        const adderess = await Adderess.findByPk(id);
+        res.send(adderess);
     },
 
 }

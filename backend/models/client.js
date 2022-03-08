@@ -9,7 +9,7 @@ const {
 const sequelize = new Sequelize(dbConfig);
 
 const User = require('./user');
-const aderess = require('./aderess');
+const aderess = require('./adderess');
 
 class Client extends Model {}
 

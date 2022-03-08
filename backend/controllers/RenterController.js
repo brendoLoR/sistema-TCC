@@ -1,5 +1,5 @@
 const Renter = require('../models/renter');
-const Aderess = require('./AderessController');
+const Aderess = require('./AdderessController');
 const User = require('./UserController');
 
 module.exports = {

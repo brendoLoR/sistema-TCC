@@ -13,7 +13,6 @@ module.exports = {
             cpf,
             email,
             accessLevelId,
-            userStatusId,
             password,
             signedTerms
         } = req.body;
@@ -22,6 +21,7 @@ module.exports = {
             var validCpf = cpf_validator(cpf);
             var validEmail = email_validator(email);
             var signedTermsAt = signedTerms ? new Date() : null;
+            var userStatusId = signedTerms ? 2 : 4;
 
             const user = User.build({
                 cpf: validCpf,
@@ -89,8 +89,8 @@ module.exports = {
     },
     async loginCheck(req, res) {
         const {
-            password,
             email, //must be email
+            password
         } = req.body;
         try {
             //first get the user data from db, 

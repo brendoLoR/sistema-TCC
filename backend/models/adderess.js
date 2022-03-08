@@ -9,9 +9,9 @@ const {
 const sequelize = new Sequelize(dbConfig);
 
 
-class Aderess extends Model {}
+class Adderess extends Model {}
 
-Aderess.init({
+Adderess.init({
   cep: Sequelize.STRING,
   city: Sequelize.STRING,
   district: Sequelize.STRING,
@@ -20,7 +20,7 @@ Aderess.init({
   uf: Sequelize.STRING,
 }, {
   sequelize,
-  modelName: 'Aderess',
+  modelName: 'Adderess',
 });
 
-module.exports = Aderess;
+module.exports = Adderess;

@@ -1,42 +1,25 @@
 'use strict';
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('NFE', {
+    await queryInterface.createTable('AccessFunctions', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      invoiceId: {
+      AccessLevelId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Invoices', // Name of the created table
+          model: 'UserAccessesLevels', // Name of the created table
           key: 'id'
         },
         allowNull: false
       },
-      contractId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Contracts', // Name of the created table
-          key: 'id'
-        },
+      funcion: {
+        type: Sequelize.STRING,
         allowNull: false
-      },
-      paymentId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Payments', // Name of the created table
-          key: 'id'
-        },
-        allowNull: false
-      },
-      nfeKey: {
-        type: Sequelize.STRING
-      },
-      danfeNumber: {
-        type: Sequelize.STRING
       },
       details: {
         type: Sequelize.TEXT
@@ -52,6 +35,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Nfes');
+    await queryInterface.dropTable('AccessFunctions');
   }
 };

@@ -20,5 +20,11 @@ module.exports = {
 
         res.send(userAccessLevel);
     },
+    async checkAccsssLevel(levelId, wantedAccess) {
+        const userAccessLevel = await UserAccessLevel.findByPk(id);
+        /**
+         * @todo a table with access possibilits and they requerid access level
+         */
+    }
 
 }

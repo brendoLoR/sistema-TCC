@@ -1,5 +1,5 @@
 const Client = require('../models/client');
-const Aderess = require('./AderessController');
+const Aderess = require('./AdderessController');
 const User = require('./UserController');
 
 module.exports = {
