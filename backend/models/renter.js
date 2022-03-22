@@ -1,23 +1,61 @@
 'use strict';
+const dbConfig = require('../src/config/database')
 const {
-  Model
+    Sequelize,
+    DataTypes,
+    Model
 } = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class Renter extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
+
+const sequelize = new Sequelize(dbConfig);
+
+const User = require('./user');
+const Aderess = require('./aderess');
+
+class Renter extends Model {}
+
+Renter.associate = function(models) {
+    Renter.belongsTo(models.user, {
+        as: 'userId'
+    });
+    return User;
+}
+Renter.associate = function(models) {
+    Renter.belongsTo(models.aderess, {
+        as: 'aderessId'
+    });
+    return Aderess;
+}
+
+Renter.init({
+    name: {
+        type: Sequelize.STRING,
+    },
+    cnpj: {
+        type: Sequelize.STRING,
+        unique: true
+    },
+    phone: {
+        type: Sequelize.STRING,
+        unique: true
+    },
+    details: {
+        type: Sequelize.STRING,
+    },
+    birthday: {
+        type: Sequelize.DATE,
+    },
+    aderessId: {
+        type: Sequelize.INTEGER,
+
+    },
+    userId: {
+        type: Sequelize.INTEGER,
+
     }
-  };
-  Renter.init({
-    cnpj: DataTypes.STRING
-  }, {
+}, {
     sequelize,
     modelName: 'Renter',
-  });
-  return Renter;
-};
+});
+
+
+module.exports = Renter

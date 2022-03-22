@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1642538793718" clover="3.2.0">
-  <project timestamp="1642538793718" name="All files">
+<coverage generated="1647896496294" clover="3.2.0">
+  <project timestamp="1647896496294" name="All files">
     <metrics statements="74" coveredstatements="74" conditionals="7" coveredconditionals="7" methods="3" coveredmethods="3" elements="84" coveredelements="84" complexity="0" loc="74" ncloc="74" packages="3" files="4" classes="4"/>
     <package name="config">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="cryptoconfig.js" path="D:\Brendo\Desktop\Projetos\2021\PRE-TCC\backend\src\config\cryptoconfig.js">
+      <file name="cryptoconfig.js" path="C:\Users\brend\OneDrive\Área de Trabalho\Projetos\2022\TCC\sistema-TCC\backend\src\config\cryptoconfig.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -16,7 +16,7 @@
     </package>
     <package name="cryoto">
       <metrics statements="40" coveredstatements="40" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-      <file name="crypter.js" path="D:\Brendo\Desktop\Projetos\2021\PRE-TCC\backend\src\cryoto\crypter.js">
+      <file name="crypter.js" path="C:\Users\brend\OneDrive\Área de Trabalho\Projetos\2022\TCC\sistema-TCC\backend\src\cryoto\crypter.js">
         <metrics statements="40" coveredstatements="40" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -62,7 +62,7 @@
     </package>
     <package name="validations">
       <metrics statements="28" coveredstatements="28" conditionals="5" coveredconditionals="5" methods="2" coveredmethods="2"/>
-      <file name="cpfvalidator.js" path="D:\Brendo\Desktop\Projetos\2021\PRE-TCC\backend\src\validations\cpfvalidator.js">
+      <file name="cpfvalidator.js" path="C:\Users\brend\OneDrive\Área de Trabalho\Projetos\2022\TCC\sistema-TCC\backend\src\validations\cpfvalidator.js">
         <metrics statements="14" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -79,7 +79,7 @@
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
       </file>
-      <file name="emailvalidator.js" path="D:\Brendo\Desktop\Projetos\2021\PRE-TCC\backend\src\validations\emailvalidator.js">
+      <file name="emailvalidator.js" path="C:\Users\brend\OneDrive\Área de Trabalho\Projetos\2022\TCC\sistema-TCC\backend\src\validations\emailvalidator.js">
         <metrics statements="14" coveredstatements="14" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
