@@ -69,3 +69,5 @@ Realty.init({
     sequelize,
     modelName: 'Realty',
 });
+
+module.exports = Realty
