@@ -1,42 +1,63 @@
 'use strict';
 const dbConfig = require('../src/config/database')
 const {
-  Sequelize,
-  DataTypes,
-  Model
+
+    Sequelize,
+    DataTypes,
+    Model
 } = require('sequelize');
 
 const sequelize = new Sequelize(dbConfig);
 
 const User = require('./user');
-const aderess = require('./adderess');
+
+const Aderess = require('./aderess');
 
 class Renter extends Model {}
 
-Renter.associate = function (models) {
-  Renter.belongsTo(models.user, {
-    as: 'userId'
-  });
-  return User ;
+Renter.associate = function(models) {
+    Renter.belongsTo(models.user, {
+        as: 'userId'
+    });
+    return User;
 }
-Renter.associate = function (models) {
-  Renter.belongsTo(models.aderess, {
-    as: 'aderessId'
-  });
-  return aderess;
+Renter.associate = function(models) {
+    Renter.belongsTo(models.aderess, {
+        as: 'aderessId'
+    });
+    return Aderess;
 }
 
 Renter.init({
-  name: Sequelize.STRING,
-  cnpj: Sequelize.STRING,
-  phone: Sequelize.STRING,
-  details: Sequelize.STRING,
-  birthday: Sequelize.DATE,
-  aderessId: Sequelize.INTEGER,
-  userId: Sequelize.INTEGER
+    name: {
+        type: Sequelize.STRING,
+    },
+    cnpj: {
+        type: Sequelize.STRING,
+        unique: true
+    },
+    phone: {
+        type: Sequelize.STRING,
+        unique: true
+    },
+    details: {
+        type: Sequelize.STRING,
+    },
+    birthday: {
+        type: Sequelize.DATE,
+    },
+    aderessId: {
+        type: Sequelize.INTEGER,
+
+    },
+    userId: {
+        type: Sequelize.INTEGER,
+
+    }
 }, {
-  sequelize,
-  modelName: 'Renter',
+    sequelize,
+    modelName: 'Renter',
 });
 
-module.exports = Renter;
+
+module.exports = Renter
