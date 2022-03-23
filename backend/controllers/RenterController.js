@@ -1,4 +1,4 @@
-const Client = require('../models/client');
+const Renter = require('../models/renter');
 const Aderess = require('./AdderessController');
 const User = require('./UserController');
 
@@ -7,8 +7,9 @@ module.exports = {
         try {
             const {
                 name,
-                nickName,
+                cnpj,
                 phone,
+                details,
                 birthday,
                 aderessData,
                 userId,
@@ -18,15 +19,16 @@ module.exports = {
             if (token === token_s) {
                 const aderessId = await Aderess.store(aderessData)
 
-                const client = await Client.create({
+                const renter = await Renter.create({
                     name,
-                    nickName,
+                    cnpj,
                     phone,
+                    details,
                     birthday,
                     aderessId,
                     userId
                 })
-                res.send(client);
+                res.send(renter);
             } else {
                 throw new TypeError('invalid section')
             }

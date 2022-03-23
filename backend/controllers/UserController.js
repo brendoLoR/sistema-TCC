@@ -13,23 +13,22 @@ module.exports = {
             cpf,
             email,
             accessLevelId,
-            userStatusId,
             password,
-            signedTermsAt
+            signedTerms
         } = req.body;
         try {
-            cryptPasswd = crypter(password, cpf.toString());
-            validCpf = cpf_validator(cpf);
-            validEmail = email_validator(email);
+            var cryptPassword = crypter(password, cpf.toString());
+            var validCpf = cpf_validator(cpf);
+            var validEmail = email_validator(email);
+            var signedTermsAt = signedTerms ? new Date() : null;
+            var userStatusId = signedTerms ? 2 : 4;
 
             const user = User.build({
                 cpf: validCpf,
                 email: validEmail,
                 accessLevelId,
                 userStatusId,
-                UserAccessLevelId: accessLevelId,
-                UserStatusId: userStatusId,
-                password: cryptPasswd,
+                password: cryptPassword,
                 token: "",
                 signedTermsAt: signedTermsAt
             })
@@ -39,28 +38,28 @@ module.exports = {
             error.message != null ? res.send(error.stack) : res.send(error);
         }
     },
-    async store(req) {
+
+    async localStore(req) {
         const {
             cpf,
             email,
             accessLevelId,
             userStatusId,
             password,
-            signedTermsAt
+            signedTerms
         } = req.body;
         try {
-            cryptPasswd = crypter(password, cpf.toString());
-            validCpf = cpf_validator(cpf);
-            validEmail = email_validator(email);
+            const cryptPassword = crypter(password, cpf.toString());
+            const validCpf = cpf_validator(cpf);
+            const validEmail = email_validator(email);
+            var signedTermsAt = signedTerms ? new Date() : null;
 
             const user = User.build({
                 cpf: validCpf,
                 email: validEmail,
                 accessLevelId,
                 userStatusId,
-                UserAccessLevelId: accessLevelId,
-                UserStatusId: userStatusId,
-                password: cryptPasswd,
+                password: cryptPassword,
                 token: "",
                 signedTermsAt: signedTermsAt
             })
@@ -85,13 +84,13 @@ module.exports = {
     },
     async getData(id) {
         const user = await User.findByPk(id);
-        
+
         return user.dataValues;
     },
     async loginCheck(req, res) {
         const {
-            password,
             email, //must be email
+            password
         } = req.body;
         try {
             //first get the user data from db, 
@@ -101,17 +100,20 @@ module.exports = {
                 }
             });
 
-            //get the sent passwd and the cpf to make the key
-            cryptSentPasswd = crypter(password, user.cpf)
+            //get the sent password and the cpf to make the key
+            cryptSentPassword = crypter(password, user.cpf)
 
             //check if are is equal
-            if (user.password !== cryptSentPasswd) {
+            if (user.password !== cryptSentPassword) {
                 throw new TypeError('incorrect password')
             } else {
                 //if ok, create a section token and send it
                 user.token = uuid();
                 await user.save();
-                res.send({token: user.token});
+                res.send({
+                    token: user.token,
+                    userId: user.dataValues.id
+                });
             }
 
         } catch (error) {

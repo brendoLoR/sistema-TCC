@@ -32,7 +32,11 @@
     "yarn": "^1.22.18"
   },
   "devDependencies": {
+    "gerar-cpf": "^2.0.3",
     "nodemon": "^2.0.12",
-    "sequelize-cli": "^6.2.0"
+    "random-email": "^1.0.3",
+    "randomstring": "^1.2.2",
+    "sequelize-cli": "^6.2.0",
+    "supertest": "^6.2.2"
   }
 }

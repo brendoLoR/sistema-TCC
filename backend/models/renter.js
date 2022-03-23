@@ -1,6 +1,7 @@
 'use strict';
 const dbConfig = require('../src/config/database')
 const {
+
     Sequelize,
     DataTypes,
     Model
@@ -9,6 +10,7 @@ const {
 const sequelize = new Sequelize(dbConfig);
 
 const User = require('./user');
+
 const Aderess = require('./aderess');
 
 class Renter extends Model {}
