@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for cryoto/crypter.js</title>
+    <title>Code coverage report for models/realtyluxurylevel.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">cryoto</a> crypter.js</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">models</a> realtyluxurylevel.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">83.87% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>40/40</span>
+                <span class='fraction'>26/31</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">83.87% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>40/40</span>
+                <span class='fraction'>26/31</span>
             </div>
         
             
@@ -93,16 +93,7 @@
 <a name='L28'></a><a href='#L28'>28</a>
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a>
-<a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a>
-<a name='L40'></a><a href='#L40'>40</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -118,6 +109,11 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -127,67 +123,44 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const crypto = require('crypto');
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+const dbConfig = require('../src/config/database')
+&nbsp;
 const {
-    algorithm,
-    key,
-    type
-} = require('../config/cryptoconfig');
+    Sequelize,
+    DataTypes,
+    Model,
+} = require('sequelize');
 &nbsp;
-// Adapted from: https://www.geeksforgeeks.org/node-js-crypto-createcipheriv-method/
-// Node.js program to demonstrate the     
+const sequelize = new Sequelize(dbConfig);
 &nbsp;
-function crypter(password, _key) {
+const renter = require("./renter")
 &nbsp;
-    // Defining algorithm
-    const algorithm = 'aes-192-cbc';
+class RealtyLuxuryLevel extends Model {}
 &nbsp;
-    // Defining key
-    const key = crypto.scryptSync(password, _key, 24);
+RealtyLuxuryLevel.associate = <span class="fstat-no" title="function not covered" >function(models) {</span>
+<span class="cstat-no" title="statement not covered" >    RealtyLuxuryLevel.belongsTo(models.renter, {</span>
+<span class="cstat-no" title="statement not covered" >        as: 'renterId'</span>
+<span class="cstat-no" title="statement not covered" >    });</span>
+<span class="cstat-no" title="statement not covered" >    return renter.id;</span>
+<span class="cstat-no" title="statement not covered" >}</span>
+RealtyLuxuryLevel.init({
+    level: Sequelize.STRING,
+    valueMultiplier: Sequelize.FLOAT,
+    renterId: Sequelize.INTEGER
+}, {
+    sequelize,
+    modelName: 'RealtyLuxuryLevel',
+});
 &nbsp;
-    // Defininf iv
-    const iv = Buffer.alloc(16, 0);
-&nbsp;
-    // Creating cipher
-    const cipher = crypto.createCipheriv(algorithm, key, iv);
-&nbsp;
-    // Declaring encrypted
-    let encrypted = '';
-&nbsp;
-    // Reading data
-    cipher.on('readable', () =&gt; {
-        let chunk;
-        while (null !== (chunk = cipher.read())) {
-            encrypted += chunk.toString('base64');
-        }
-    });
-&nbsp;
-    cipher.end();
-    return encrypted;
-}
-&nbsp;
-module.exports = crypter;</pre></td></tr></table></pre>
+module.exports = RealtyLuxuryLevel;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Mar 23 2022 12:15:42 GMT-0300 (Horário Padrão de Brasília)
+                at Wed Mar 23 2022 12:20:56 GMT-0300 (Horário Padrão de Brasília)
             </div>
         <script src="../prettify.js"></script>
         <script>

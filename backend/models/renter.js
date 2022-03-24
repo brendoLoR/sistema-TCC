@@ -11,7 +11,7 @@ const sequelize = new Sequelize(dbConfig);
 
 const User = require('./user');
 
-const Aderess = require('./aderess');
+const Adderess = require('./adderess');
 
 class Renter extends Model {}
 
@@ -22,10 +22,10 @@ Renter.associate = function(models) {
     return User;
 }
 Renter.associate = function(models) {
-    Renter.belongsTo(models.aderess, {
-        as: 'aderessId'
+    Renter.belongsTo(models.adderess, {
+        as: 'adderessId'
     });
-    return Aderess;
+    return Adderess;
 }
 
 Renter.init({
@@ -46,7 +46,7 @@ Renter.init({
     birthday: {
         type: Sequelize.DATE,
     },
-    aderessId: {
+    adderessId: {
         type: Sequelize.INTEGER,
 
     },

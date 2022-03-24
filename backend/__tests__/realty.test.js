@@ -1,12 +1,17 @@
-const { Model } = require('sequelize/types');
 const Realty = require('../models/realty')
 const RealtyType = require('../models/realtytype')
 
-describe('email validation test', () => {
-    it('create a realty type', () => {
+describe('realty test', () => {
+    it('create and delete a realty type', async() => {
         const realtyType = await RealtyType.create({
             type: "tipo 1"
         })
-        expect(realtyType).toBe(typeof(Model))
+        expect(realtyType).toBeInstanceOf(RealtyType)
+        const deletedRows = await RealtyType.destroy({
+            where: {
+                id: realtyType.id
+            }
+        })
+        expect(deletedRows).toBe(1)
     })
 });
