@@ -11,6 +11,9 @@ routes.post('/new_user', UserController.store);
 routes.post('/login', UserController.loginCheck);
 routes.post('/create_client', ClientController.store);
 routes.post('/create_renter', RenterController.store);
+routes.get('/tes', (res,req)=>{
+    res.send("estou aqui")
+});
 
 
 module.exports = routes; 
