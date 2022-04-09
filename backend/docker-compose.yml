@@ -1,0 +1,29 @@
+# docker-compose.yml
+
+version: "3.7"
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: system
+      POSTGRES_PASSWORD: system
+    ports: 
+      - '5432:5432'
+    volumes:
+      - tcc-db:/var/lib/postgresql/data
+
+  addressbook:
+    build:
+      context: .
+    environment:
+      DB_SCHEMA: tcc
+      DB_USER: system
+      DB_PASSWORD: system
+      DB_HOST: postgres
+    depends_on:
+      - postgres
+    ports:
+      - '3000:3000'
+        
+volumes:
+  tcc-db:

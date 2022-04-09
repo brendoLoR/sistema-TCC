@@ -3,9 +3,9 @@
 module.exports = {
   dialect: 'postgres',
   host: 'localhost',
-  username: 'postgres',
-  password: 'root',
-  database: 'tcc-cliente-vendas',
+  username: 'system',
+  password: 'system',
+  database: 'tcc',
   define: {
     timestamp: true,
     underscored: true
